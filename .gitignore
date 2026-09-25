@@ -30,6 +30,7 @@
 
 # Executables
 *.exe
+programa
 *.out
 *.app
 *.i*86
@@ -53,3 +54,6 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Editor settings
+.vscode/

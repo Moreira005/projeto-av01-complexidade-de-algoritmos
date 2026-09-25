@@ -8,8 +8,8 @@
 
 - **Instituição:** Centro Universitário de João Pessoa (UNIPÊ)
 - **Disciplina:** Complexidade e Computabilidade de Algoritmo
-- **Docente:** Prof. Herriot
-- **Avaliação:** Projeto Prático - AV01
+- **Docente:** Prof. Carlos Herriot
+- **Avaliação:** Projeto - AV01
 
 ---
 
@@ -17,14 +17,14 @@
 
 > ⚠️ **Atenção:** Todos os 6 membros devem ser listados abaixo e no cabeçalho dos ficheiros fonte antes do envio final.
 
-| N.º | Nome Completo         |   Matrícula   | Função / Responsabilidade               |
-| :-: | :-------------------- | :-----------: | :-------------------------------------- |
-|  1  | **[Nome do Aluno 1]** | `[Matrícula]` | Desenvolvedor / Análise de Complexidade |
-|  2  | **[Nome do Aluno 2]** | `[Matrícula]` | Desenvolvedor / Análise de Complexidade |
-|  3  | **[Nome do Aluno 3]** | `[Matrícula]` | Desenvolvedor / Análise de Complexidade |
-|  4  | **[Nome do Aluno 4]** | `[Matrícula]` | Desenvolvedor / Análise de Complexidade |
-|  5  | **[Nome do Aluno 5]** | `[Matrícula]` | Desenvolvedor / Análise de Complexidade |
-|  6  | **[Nome do Aluno 6]** | `[Matrícula]` | Desenvolvedor / Análise de Complexidade |
+| N.º | Nome Completo                          |    RGM     | Função / Responsabilidade               |
+| :-: | :------------------------------------- | :--------: | :-------------------------------------- |
+|  1  | **Arthur Gomes de Albuquerque Labbê**  | `38291339` | Desenvolvedor / Análise de Complexidade |
+|  2  | **Erickson Cezar Colicchio Junior**    | `33175233` | Desenvolvedor / Análise de Complexidade |
+|  3  | **Gustavo Moreira de Queiroz**         | `39441229` | Desenvolvedor / Análise de Complexidade |
+|  4  | **Joelson dos Santos Mendonça Junior** | `40011089` | Desenvolvedor / Análise de Complexidade |
+|  5  | **Pietro Santana Fragoso Vasconcelos** | `38187515` | Desenvolvedor / Análise de Complexidade |
+|  6  | **Saulo Contreras de Assis**           | `37851039` | Desenvolvedor / Análise de Complexidade |
 
 ---
 
@@ -79,3 +79,33 @@ Desenvolver uma aplicação interativa via linha de comando (CLI) na linguagem *
   ## 📄 Para mais detalhes
 
   acesse o [documento original do professor](./docs/Projeto_AV01.docx).
+
+# ↓ 💻 COMO COMPILAR O PROJETO ↓
+
+## 1. Ferramentas Necessárias
+
+Para compilar e executar o projeto, você precisará ter o seguinte ambiente configurado:
+
+- **Compilador C:** GCC (GNU Compiler Collection) ou MinGW (para Windows).
+- **Ambiente de Desenvolvimento:** DEV C++, Code Blocks, Visual Studio Code (VS Code) ou qualquer outra IDE de sua preferência.
+- **Terminal:** Prompt de Comando (Windows), PowerShell ou terminal Linux/macOS.
+
+## 2. Como Compilar e Executar o Projeto
+
+Como o projeto está modularizado e separado em diretórios (`src` e `include`), a compilação requer a indicação dos caminhos dos arquivos.
+
+**Passo 1: Abra o terminal na pasta raiz do projeto (`projeto-av01-complexidade-de-algoritmos`).**
+
+**Passo 2: Execute o comando de compilação:**
+
+```bash
+gcc src/*.c -I include -o programa
+```
+
+**Passo 3: Execute o comando para iniciar o programa:**
+
+```bash
+No Windows: .\programa.exe
+
+No Linux/Mac: ./programa
+```
