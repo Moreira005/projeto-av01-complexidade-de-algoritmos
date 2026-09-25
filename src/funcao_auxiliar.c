@@ -74,3 +74,55 @@ void imprimir_matriz(int n, int M[n][n])
 }
 
 //-----------------------------------------------------------------------
+
+// FUNÇÃO 3:
+
+void preencher_matriz_3d_aleatoria(int n, int M[n][n][n])
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            for (int k = 0; k < n; k++)
+            {
+                M[i][j][k] = rand() % 20; // Valores entre 0 e 19
+            }
+        }
+    }
+}
+
+void preencher_matriz_3d_manual(int n, int M[n][n][n])
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            for (int k = 0; k < n; k++)
+            {
+                printf("Digite o valor para a posicao [%d][%d][%d]: ", i, j, k);
+                scanf("%d", &M[i][j][k]);
+            }
+        }
+    }
+}
+
+void imprimir_matriz_3d(int n, int M[n][n][n], const char *nome_matriz)
+{
+    printf("\n--- %s Gerada (%dx%dx%d) ---\n", nome_matriz, n, n, n);
+    for (int i = 0; i < n; i++)
+    {
+        printf("Camada [%d]:\n", i);
+        for (int j = 0; j < n; j++)
+        {
+            printf("| ");
+            for (int k = 0; k < n; k++)
+            {
+                printf("%3d ", M[i][j][k]);
+            }
+            printf(" |\n");
+        }
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------

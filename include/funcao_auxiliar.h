@@ -11,4 +11,9 @@ void preencher_matriz_aleatoria(int n, int M[n][n]);
 void preencher_matriz_manual(int n, int M[n][n]);
 void imprimir_matriz(int n, int M[n][n]);
 
+// Funcoes para Matrizes Tridimensionais (Funcao 3)
+void preencher_matriz_3d_aleatoria(int n, int M[n][n][n]);
+void preencher_matriz_3d_manual(int n, int M[n][n][n]);
+void imprimir_matriz_3d(int n, int M[n][n][n], const char *nome_matriz);
+
 #endif
