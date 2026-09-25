@@ -23,7 +23,7 @@ int contar_ocorrencias(int n, int V[n], int k, int B[k])
     return ocorrencias_totais;
 }
 
-void executar_funcao_1()
+void executar_funcao1()
 {
     int n, k, escolha;
 
