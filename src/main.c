@@ -3,6 +3,7 @@
 #include "funcao1.h"
 #include "funcao2.h"
 #include "funcao3.h"
+#include "funcao4.h"
 
 int main()
 {
@@ -17,7 +18,7 @@ int main()
         printf("1 - Funcao 1: Contagem de Ocorrencias Distintas\n");
         printf("2 - Funcao 2: Analise de Pares em Matriz Triangular\n");
         printf("3 - Funcao 3: Comparacao de Matrizes Tridimensionais\n");
-        // printf("4 - Funcao 4: ...\n");
+        printf("4 - Funcao 4: Analise de Casos Assimetricos\n");
         // printf("5 - Funcao 5: ...\n");
         printf("0 - Sair\n");
         printf("==================================================\n\n");
@@ -34,6 +35,9 @@ int main()
             break;
         case 3:
             executar_funcao3();
+            break;
+        case 4:
+            executar_funcao4();
             break;
         case 0:
             printf("\nEncerrando o programa...\n");
