@@ -16,4 +16,8 @@ void preencher_matriz_3d_aleatoria(int n, int M[n][n][n]);
 void preencher_matriz_3d_manual(int n, int M[n][n][n]);
 void imprimir_matriz_3d(int n, int M[n][n][n], const char *nome_matriz);
 
+// Funcoes para a Funcao 5
+int busca_binaria(int n, int V[n], int valor);
+void preencher_vetor_ordenado_aleatorio(int n, int V[n]);
+
 #endif

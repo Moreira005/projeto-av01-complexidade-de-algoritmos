@@ -126,3 +126,43 @@ void imprimir_matriz_3d(int n, int M[n][n][n], const char *nome_matriz)
 }
 
 //-----------------------------------------------------------------------
+
+// bFUNÇÃO 5:
+
+// Algoritmo clássico de Busca Binária
+int busca_binaria(int n, int V[n], int valor)
+{
+    int inicio = 0;
+    int fim = n - 1;
+
+    while (inicio <= fim)
+    {
+        int meio = inicio + (fim - inicio) / 2;
+
+        if (V[meio] == valor)
+        {
+            return 1; // Encontrado
+        }
+        if (V[meio] < valor)
+        {
+            inicio = meio + 1; // Busca na metade direita
+        }
+        else
+        {
+            fim = meio - 1; // Busca na metade esquerda
+        }
+    }
+
+    return 0; // Nao encontrado
+}
+
+// Garante que o vetor seja gerado em ordem estritamente crescente
+void preencher_vetor_ordenado_aleatorio(int n, int V[n])
+{
+    V[0] = rand() % 10; // Primeiro valor
+    for (int i = 1; i < n; i++)
+    {
+        // O próximo valor é sempre o anterior somado a um incremento aleatório (de 1 a 10)
+        V[i] = V[i - 1] + (rand() % 10) + 1;
+    }
+}

@@ -4,6 +4,7 @@
 #include "funcao2.h"
 #include "funcao3.h"
 #include "funcao4.h"
+#include "funcao5.h"
 
 int main()
 {
@@ -19,7 +20,7 @@ int main()
         printf("2 - Funcao 2: Analise de Pares em Matriz Triangular\n");
         printf("3 - Funcao 3: Comparacao de Matrizes Tridimensionais\n");
         printf("4 - Funcao 4: Analise de Casos Assimetricos\n");
-        // printf("5 - Funcao 5: ...\n");
+        printf("5 - Funcao 5: Contagem com Busca Binaria\n");
         printf("0 - Sair\n");
         printf("==================================================\n\n");
         printf("Escolha uma opcao: ");
@@ -38,6 +39,9 @@ int main()
             break;
         case 4:
             executar_funcao4();
+            break;
+        case 5:
+            executar_funcao5();
             break;
         case 0:
             printf("\nEncerrando o programa...\n");
