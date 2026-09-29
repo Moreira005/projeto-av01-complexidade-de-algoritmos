@@ -39,7 +39,6 @@ void executar_funcao5(void)
     printf("\n--- Funcao 5: Contagem com Busca Binaria ---\n\n");
     int n = ler_dimensao("Digite o tamanho dos vetores (n): ");
 
-    // Alocados no heap: com n = 10.000.000 os vetores nao caberiam na pilha
     int *A = alocar_memoria(sizeof(int[n])); // Nao ordenado
     int *B = alocar_memoria(sizeof(int[n])); // Ordenado
     if (A == NULL || B == NULL)
@@ -71,7 +70,7 @@ void executar_funcao5(void)
         }
     }
 
-    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    // Imprime o arranjo gerado antes de exibir o resultado
     if (confirmar_impressao(2LL * n))
     {
         printf("\nVetor A (Nao Ordenado):\n\n");

@@ -200,8 +200,7 @@ void imprimir_matriz(int linhas, int colunas, int M[linhas][colunas])
     }
 }
 
-// Exigencia do projeto (ATENCAO): pergunta linhas e colunas, cria a matriz
-// dinamicamente e a preenche com valores aleatorios.
+// Pergunta linhas e colunas, cria a matriz dinamicamente e a preenche com valores aleatorios.
 // O retorno deve ser usado como int (*M)[colunas] e liberado com free().
 void *criar_matriz_dinamica(int *linhas, int *colunas)
 {

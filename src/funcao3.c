@@ -65,7 +65,6 @@ void executar_funcao3(void)
     printf("\n--- Funcao 3: Comparacao de Matrizes Tridimensionais ---\n\n");
     int n = ler_dimensao("Digite a dimensao das matrizes 3D (n): ");
 
-    // Alocadas no heap: com n = 300 cada matriz ocupa ~108 MB e estouraria a pilha
     int (*A)[n][n] = alocar_memoria(sizeof(int[n][n][n]));
     int (*B)[n][n] = alocar_memoria(sizeof(int[n][n][n]));
     if (A == NULL || B == NULL)
@@ -88,7 +87,7 @@ void executar_funcao3(void)
         preencher_matriz_3d_manual(n, B);
     }
 
-    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    // Imprime o arranjo gerado antes de exibir o resultado
     if (confirmar_impressao(2LL * n * n * n))
     {
         imprimir_matriz_3d(n, A, "Matriz A");

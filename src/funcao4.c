@@ -82,7 +82,7 @@ void executar_funcao4(void)
         preencher_vetor_manual(n, V);
     }
 
-    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    // Imprime o arranjo gerado antes de exibir o resultado
     if (confirmar_impressao(n))
     {
         printf("\nVetor Gerado:\n\n");

@@ -24,7 +24,7 @@ int analisar_matriz_triangular(int n, int M[n][n])
     // Laço externo percorre as linhas
     for (int i = 0; i < n; i++)
     {
-        // Laço interno restrito: inicia em 'i' para pegar a diagonal e o triângulo superior
+        // Laço interno restrito, iniciando em 'i' para pegar a diagonal e o triângulo superior
         for (int j = i; j < n; j++)
         {
             int soma = M[i][j] + M[j][i];
@@ -60,7 +60,7 @@ void executar_funcao2(void)
         preencher_matriz_manual(n, n, M);
     }
 
-    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    // Imprime o arranjo gerado antes de exibir o resultado
     if (confirmar_impressao((long long)n * n))
     {
         imprimir_matriz(n, n, M);

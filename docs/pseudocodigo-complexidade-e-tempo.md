@@ -46,14 +46,14 @@ função contar_ocorrencias(V[0..n-1], n, B[0..k-1], k)
 
 ### Complexidade por linha
 
-| Linha | Comando                     | Custo     |
-| :---: | :-------------------------- | :-------- |
-|   1   | `total ← 0`                 | 1         |
-|   2   | `para i de 0 até k-1`       | k + 1     |
-|   3   | `para j de 0 até n-1`       | k(n + 1)  |
-|   4   | `se V[j] = B[i]`            | kn        |
-|   5   | `total ← total + 1`         | kn        |
-|   6   | `retorne total`             | 1         |
+| Linha | Comando               | Custo    |
+| :---: | :-------------------- | :------- |
+|   1   | `total ← 0`           | 1        |
+|   2   | `para i de 0 até k-1` | k + 1    |
+|   3   | `para j de 0 até n-1` | k(n + 1) |
+|   4   | `se V[j] = B[i]`      | kn       |
+|   5   | `total ← total + 1`   | kn       |
+|   6   | `retorne total`       | 1        |
 
 Pior caso: todos os elementos de `V` são iguais aos buscados, então a linha 5 executa sempre.
 
@@ -102,9 +102,9 @@ O laço interno começa em `j = i`, então percorre apenas a diagonal principal 
 
 Para cada `i`, o corpo do laço interno executa `n - i` vezes:
 
-| i          | 0 | 1     | 2     | ... | n-1 |
-| :--------- |:-:| :---: | :---: | :-: | :-: |
-| repetições | n | n - 1 | n - 2 | ... | 1   |
+| i          |  0  |   1   |   2   | ... | n-1 |
+| :--------- | :-: | :---: | :---: | :-: | :-: |
+| repetições |  n  | n - 1 | n - 2 | ... |  1  |
 
 ```
 Soma das repetições = n + (n-1) + ... + 2 + 1 = n(n + 1) / 2
@@ -118,15 +118,15 @@ Soma dos testes = Σ (n - i + 1), i = 0..n-1 = n(n + 1)/2 + n = (n² + 3n) / 2
 
 ### Complexidade por linha
 
-| Linha | Comando                         | Custo           |
-| :---: | :------------------------------ | :-------------- |
-|   1   | `contador ← 0`                  | 1               |
-|   2   | `para i de 0 até n-1`           | n + 1           |
-|   3   | `para j de i até n-1`           | (n² + 3n) / 2   |
-|   4   | `soma ← A[i][j] + A[j][i]`      | n(n + 1) / 2    |
-|   5   | `se soma mod 5 = 0`             | n(n + 1) / 2    |
-|   6   | `contador ← contador + 1`       | n(n + 1) / 2    |
-|   7   | `retorne contador`              | 1               |
+| Linha | Comando                    | Custo         |
+| :---: | :------------------------- | :------------ |
+|   1   | `contador ← 0`             | 1             |
+|   2   | `para i de 0 até n-1`      | n + 1         |
+|   3   | `para j de i até n-1`      | (n² + 3n) / 2 |
+|   4   | `soma ← A[i][j] + A[j][i]` | n(n + 1) / 2  |
+|   5   | `se soma mod 5 = 0`        | n(n + 1) / 2  |
+|   6   | `contador ← contador + 1`  | n(n + 1) / 2  |
+|   7   | `retorne contador`         | 1             |
 
 Pior caso: todas as somas são múltiplas de 5, então a linha 6 executa sempre.
 
@@ -182,22 +182,22 @@ função comparar_matrizes_3d(A[n][n][n], B[n][n][n], n)
 
 ### Complexidade por linha
 
-| Linha | Comando                          | Custo       |
-| :---: | :------------------------------- | :---------- |
-|   1   | `somaA ← 0`                      | 1           |
-|   2   | `somaB ← 0`                      | 1           |
-|   3   | `para i de 0 até n-1`            | n + 1       |
-|   4   | `para j de 0 até n-1`            | n(n + 1)    |
-|   5   | `para k de 0 até n-1`            | n²(n + 1)   |
-|   6   | `somaA ← somaA + A[i][j][k]`     | n³          |
-|   7   | `para i de 0 até n-1`            | n + 1       |
-|   8   | `para j de 0 até n-1`            | n(n + 1)    |
-|   9   | `para k de 0 até n-1`            | n²(n + 1)   |
-|  10   | `somaB ← somaB + B[i][j][k]`     | n³          |
-|  11   | `escreva somaA`                  | 1           |
-|  12   | `escreva somaB`                  | 1           |
-|  13   | `se somaA ≥ somaB`               | 1           |
-| 14/15 | `retorne 1` ou `retorne 0`       | 1           |
+| Linha | Comando                      | Custo     |
+| :---: | :--------------------------- | :-------- |
+|   1   | `somaA ← 0`                  | 1         |
+|   2   | `somaB ← 0`                  | 1         |
+|   3   | `para i de 0 até n-1`        | n + 1     |
+|   4   | `para j de 0 até n-1`        | n(n + 1)  |
+|   5   | `para k de 0 até n-1`        | n²(n + 1) |
+|   6   | `somaA ← somaA + A[i][j][k]` | n³        |
+|   7   | `para i de 0 até n-1`        | n + 1     |
+|   8   | `para j de 0 até n-1`        | n(n + 1)  |
+|   9   | `para k de 0 até n-1`        | n²(n + 1) |
+|  10   | `somaB ← somaB + B[i][j][k]` | n³        |
+|  11   | `escreva somaA`              | 1         |
+|  12   | `escreva somaB`              | 1         |
+|  13   | `se somaA ≥ somaB`           | 1         |
+| 14/15 | `retorne 1` ou `retorne 0`   | 1         |
 
 Esta função não tem pior ou melhor caso: os dois arranjos são sempre percorridos por completo.
 
@@ -258,14 +258,14 @@ função processar_vetor(V[0..n-1], n)
 
 ### Complexidade de `calcular_fatorial(m)` (m ≥ 1)
 
-| Linha | Comando                  | Custo   |
-| :---: | :----------------------- | :------ |
-|   1   | `se m < 0`               | 1       |
-|   2   | `retorne 0`              | 0       |
-|   3   | `fat ← 1`                | 1       |
-|   4   | `para i de 2 até m`      | m       |
-|   5   | `fat ← fat · i`          | m - 1   |
-|   6   | `retorne fat`            | 1       |
+| Linha | Comando             | Custo |
+| :---: | :------------------ | :---- |
+|   1   | `se m < 0`          | 1     |
+|   2   | `retorne 0`         | 0     |
+|   3   | `fat ← 1`           | 1     |
+|   4   | `para i de 2 até m` | m     |
+|   5   | `fat ← fat · i`     | m - 1 |
+|   6   | `retorne fat`       | 1     |
 
 O laço vai de 2 até m, então o corpo executa `m - 1` vezes e o teste executa `m` vezes.
 
@@ -284,14 +284,14 @@ O custo de cada iteração depende do ramo do `se`:
 
 Seja `p` a quantidade de pares e `q = n - p` a de ímpares.
 
-| Linha | Comando                                           | Custo (geral)         | Pior caso (todos ímpares, valor m) |
-| :---: | :------------------------------------------------ | :-------------------- | :--------------------------------- |
-|   7   | `somatorio ← 0`                                   | 1                     | 1                                  |
-|   8   | `para i de 0 até n-1`                             | n + 1                 | n + 1                              |
-|   9   | `se V[i] mod 2 = 0`                               | n                     | n                                  |
-|  10   | `somatorio ← somatorio + V[i]`                    | p                     | 0                                  |
-|  11   | `somatorio ← somatorio + calcular_fatorial(V[i])` | Σ (1 + F(V[i])) nos q ímpares | n(1 + 2m + 2) = n(2m + 3)  |
-|  12   | `retorne somatorio`                               | 1                     | 1                                  |
+| Linha | Comando                                           | Custo (geral)                 | Pior caso (todos ímpares, valor m) |
+| :---: | :------------------------------------------------ | :---------------------------- | :--------------------------------- |
+|   7   | `somatorio ← 0`                                   | 1                             | 1                                  |
+|   8   | `para i de 0 até n-1`                             | n + 1                         | n + 1                              |
+|   9   | `se V[i] mod 2 = 0`                               | n                             | n                                  |
+|  10   | `somatorio ← somatorio + V[i]`                    | p                             | 0                                  |
+|  11   | `somatorio ← somatorio + calcular_fatorial(V[i])` | Σ (1 + F(V[i])) nos q ímpares | n(1 + 2m + 2) = n(2m + 3)          |
+|  12   | `retorne somatorio`                               | 1                             | 1                                  |
 
 ### Expressão de complexidade
 
@@ -367,17 +367,17 @@ A cada iteração o intervalo de busca cai pela metade. No pior caso o laço exe
 L = piso(log2 n) + 1   iterações
 ```
 
-| Linha | Comando                                   | Custo  |
-| :---: | :---------------------------------------- | :----- |
-|   1   | `inicio ← 0`                              | 1      |
-|   2   | `fim ← n - 1`                             | 1      |
-|   3   | `enquanto inicio ≤ fim`                   | L + 1  |
-|   4   | `meio ← inicio + (fim - inicio) / 2`      | L      |
-|   5   | `se V[meio] = x`                          | L      |
-|   6   | `retorne 1`                               | 0      |
-|   7   | `se V[meio] < x`                          | L      |
-|  8/9  | `inicio ← meio + 1` ou `fim ← meio - 1`   | L      |
-|  10   | `retorne 0`                               | 1      |
+| Linha | Comando                                 | Custo |
+| :---: | :-------------------------------------- | :---- |
+|   1   | `inicio ← 0`                            | 1     |
+|   2   | `fim ← n - 1`                           | 1     |
+|   3   | `enquanto inicio ≤ fim`                 | L + 1 |
+|   4   | `meio ← inicio + (fim - inicio) / 2`    | L     |
+|   5   | `se V[meio] = x`                        | L     |
+|   6   | `retorne 1`                             | 0     |
+|   7   | `se V[meio] < x`                        | L     |
+|  8/9  | `inicio ← meio + 1` ou `fim ← meio - 1` | L     |
+|  10   | `retorne 0`                             | 1     |
 
 ```
 Bb(n) = 1 + 1 + (L + 1) + L + L + L + L + 1
@@ -392,13 +392,13 @@ O pior caso da busca é **não encontrar** o elemento. Quando ele é encontrado,
 
 Pior caso: nenhum elemento de `A` está em `B`, então todas as buscas custam `Bb(n)` e a linha 14 nunca executa.
 
-| Linha | Comando                                  | Custo              |
-| :---: | :--------------------------------------- | :----------------- |
-|  11   | `contador ← 0`                           | 1                  |
-|  12   | `para i de 0 até n-1`                    | n + 1              |
-|  13   | `se busca_binaria(B, n, A[i]) = 1`       | n · (1 + Bb(n))    |
-|  14   | `contador ← contador + 1`                | 0                  |
-|  15   | `retorne contador`                       | 1                  |
+| Linha | Comando                            | Custo           |
+| :---: | :--------------------------------- | :-------------- |
+|  11   | `contador ← 0`                     | 1               |
+|  12   | `para i de 0 até n-1`              | n + 1           |
+|  13   | `se busca_binaria(B, n, A[i]) = 1` | n · (1 + Bb(n)) |
+|  14   | `contador ← contador + 1`          | 0               |
+|  15   | `retorne contador`                 | 1               |
 
 ### Expressão de complexidade
 
@@ -426,10 +426,10 @@ tempo = 1.260.000.003 / 10^8 ≈ 12,6 segundos
 
 ## Resumo
 
-| Função | Expressão de complexidade (pior caso)  | Big O        | Entrada               | Instruções    | Tempo (10^8 instr/s) |
-| :----: | :------------------------------------- | :----------- | :-------------------- | ------------: | -------------------: |
-|   1    | T(n, k) = 3nk + 2k + 3                 | O(n · k)     | n = 50.000; k = 4.000 | 600.008.003   | ≈ 6,00 s             |
-|   2    | T(n) = 2n² + 4n + 3                    | O(n²)        | n = 500               | 502.003       | ≈ 5,02 ms            |
-|   3    | T(n) = 4n³ + 4n² + 4n + 8              | O(n³)        | n = 300               | 108.361.208   | ≈ 1,08 s             |
-|   4    | T(n, m) = 2nm + 5n + 3 (m = 19 → 43n + 3) | O(n · m) → O(n) | n = 50.000      | 2.150.003     | ≈ 21,5 ms            |
-|   5    | T(n) = n(5 · piso(log2 n) + 11) + 3    | O(n log n)   | n = 10.000.000        | 1.260.000.003 | ≈ 12,6 s             |
+| Função | Expressão de complexidade (pior caso)     | Big O           | Entrada               |    Instruções | Tempo (10^8 instr/s) |
+| :----: | :---------------------------------------- | :-------------- | :-------------------- | ------------: | -------------------: |
+|   1    | T(n, k) = 3nk + 2k + 3                    | O(n · k)        | n = 50.000; k = 4.000 |   600.008.003 |             ≈ 6,00 s |
+|   2    | T(n) = 2n² + 4n + 3                       | O(n²)           | n = 500               |       502.003 |            ≈ 5,02 ms |
+|   3    | T(n) = 4n³ + 4n² + 4n + 8                 | O(n³)           | n = 300               |   108.361.208 |             ≈ 1,08 s |
+|   4    | T(n, m) = 2nm + 5n + 3 (m = 19 → 43n + 3) | O(n · m) → O(n) | n = 50.000            |     2.150.003 |            ≈ 21,5 ms |
+|   5    | T(n) = n(5 · piso(log2 n) + 11) + 3       | O(n log n)      | n = 10.000.000        | 1.260.000.003 |             ≈ 12,6 s |

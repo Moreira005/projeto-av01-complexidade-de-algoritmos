@@ -63,7 +63,7 @@ void executar_funcao1(void)
         preencher_vetor_manual(k, B);
     }
 
-    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    // Imprime o arranjo gerado antes de exibir o resultado
     if (confirmar_impressao((long long)n + k))
     {
         printf("\nVetor Principal:\n\n");
