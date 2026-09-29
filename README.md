@@ -76,9 +76,27 @@ Desenvolver uma aplicação interativa via linha de comando (CLI) na linguagem *
   void exemplo(int n, int M[n][n]);
   ```
 
-  ## 📄 Para mais detalhes
+- **Heap para arranjos grandes:** os arranjos são alocados com `malloc` através de ponteiros para VLA (ex.: `int (*A)[n][n] = malloc(sizeof(int[n][n][n]));`), pois entradas como $n = 300$ na Função 3 (~108 MB por matriz) estourariam a pilha.
+- **Matriz Dinâmica (exigência "ATENÇÃO"):** a opção `6` do menu pergunta a quantidade de linhas e colunas, cria a matriz dinamicamente e a preenche com valores aleatórios.
+- **Impressão dos arranjos:** toda função imprime o arranjo antes do resultado. Para arranjos com mais de 2.000 elementos, o programa pergunta antes de imprimir.
 
-  acesse o [documento original do professor](./docs/Projeto_AV01.docx).
+---
+
+## 📊 Análise de Complexidade
+
+Os pseudocódigos, a complexidade de cada linha, as expressões $T(n)$, o Big-O e os cálculos de tempo das 5 funções estão em [`docs/analise-complexidade.md`](./docs/analise-complexidade.md).
+
+| Função | Big-O        | Tempo estimado |
+| :----: | :----------- | -------------: |
+|   1    | $O(n \cdot k)$ | ≈ 6,00 s     |
+|   2    | $O(n^2)$     | ≈ 5,02 ms      |
+|   3    | $O(n^3)$     | ≈ 1,08 s       |
+|   4    | $O(n \cdot m)$ (pior caso) | ≈ 21,5 ms |
+|   5    | $O(n \log n)$ | ≈ 12,6 s      |
+
+## 📄 Para mais detalhes
+
+Acesse o [documento original do professor](./docs/projeto-AV01.docx).
 
 # ↓ 💻 COMO COMPILAR O PROJETO ↓
 
@@ -99,7 +117,7 @@ Como o projeto está modularizado e separado em diretórios (`src` e `include`),
 **Passo 2: Execute o comando de compilação:**
 
 ```bash
-gcc src/*.c -I include -o programa
+gcc -std=c99 src/*.c -I include -o programa
 ```
 
 **Passo 3: Execute o comando para iniciar o programa:**

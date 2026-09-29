@@ -1,13 +1,26 @@
+/*
+ * PROJETO AV01 - COMPLEXIDADE E COMPUTABILIDADE DE ALGORITMO (UNIPE)
+ * Integrantes:
+ *   Arthur Gomes de Albuquerque Labbe   - RGM 38291339
+ *   Erickson Cezar Colicchio Junior     - RGM 33175233
+ *   Gustavo Moreira de Queiroz          - RGM 39441229
+ *   Joelson dos Santos Mendonca Junior  - RGM 40011089
+ *   Pietro Santana Fragoso Vasconcelos  - RGM 38187515
+ *   Saulo Contreras de Assis            - RGM 37851039
+ *
+ * Funcao 3: Comparacao de Matrizes Tridimensionais
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "funcao_auxiliar.h"
 #include "funcao3.h"
 
+// Complexidade: T(n) = 4n^3 + 4n^2 + 4n + 8  ->  O(n^3)
 int comparar_matrizes_3d(int n, int A[n][n][n], int B[n][n][n])
 {
-    int somaA = 0;
-    int somaB = 0;
+    long long somaA = 0;
+    long long somaB = 0;
 
     // Percorrer a matriz A completamente
     for (int i = 0; i < n; i++)
@@ -33,8 +46,8 @@ int comparar_matrizes_3d(int n, int A[n][n][n], int B[n][n][n])
         }
     }
 
-    printf("\nSoma total da Matriz A: %d", somaA);
-    printf("\nSoma total da Matriz B: %d\n", somaB);
+    printf("\nSoma total da Matriz A: %lld", somaA);
+    printf("\nSoma total da Matriz B: %lld\n", somaB);
 
     // Retorna 1 se A for maior ou igual a B, caso contrario 0
     if (somaA >= somaB)
@@ -47,26 +60,23 @@ int comparar_matrizes_3d(int n, int A[n][n][n], int B[n][n][n])
     }
 }
 
-void executar_funcao3()
+void executar_funcao3(void)
 {
-    int n, escolha;
-
     printf("\n--- Funcao 3: Comparacao de Matrizes Tridimensionais ---\n\n");
-    printf("Digite a dimensao das matrizes 3D (n): ");
-    scanf("%d", &n);
+    int n = ler_dimensao("Digite a dimensao das matrizes 3D (n): ");
 
-    int A[n][n][n];
-    int B[n][n][n];
-
-    printf("\nComo deseja preencher as matrizes 3D?\n\n");
-    printf("1 - Aleatoriamente\n");
-    printf("2 - Manualmente\n\n");
-    printf("Escolha: ");
-    scanf("%d", &escolha);
-
-    if (escolha == 1)
+    // Alocadas no heap: com n = 300 cada matriz ocupa ~108 MB e estouraria a pilha
+    int (*A)[n][n] = alocar_memoria(sizeof(int[n][n][n]));
+    int (*B)[n][n] = alocar_memoria(sizeof(int[n][n][n]));
+    if (A == NULL || B == NULL)
     {
-        srand(time(NULL));
+        free(A);
+        free(B);
+        return;
+    }
+
+    if (escolher_preenchimento("as matrizes 3D") == 1)
+    {
         preencher_matriz_3d_aleatoria(n, A);
         preencher_matriz_3d_aleatoria(n, B);
     }
@@ -78,10 +88,17 @@ void executar_funcao3()
         preencher_matriz_3d_manual(n, B);
     }
 
-    imprimir_matriz_3d(n, A, "Matriz A");
-    imprimir_matriz_3d(n, B, "Matriz B");
+    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    if (confirmar_impressao(2LL * n * n * n))
+    {
+        imprimir_matriz_3d(n, A, "Matriz A");
+        imprimir_matriz_3d(n, B, "Matriz B");
+    }
 
     int resultado = comparar_matrizes_3d(n, A, B);
 
     printf("\nResultado da comparacao (1 se A >= B, 0 caso contrario): %d\n", resultado);
+
+    free(A);
+    free(B);
 }

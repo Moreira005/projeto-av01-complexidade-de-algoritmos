@@ -1,13 +1,25 @@
+/*
+ * PROJETO AV01 - COMPLEXIDADE E COMPUTABILIDADE DE ALGORITMO (UNIPE)
+ * Integrantes:
+ *   Arthur Gomes de Albuquerque Labbe   - RGM 38291339
+ *   Erickson Cezar Colicchio Junior     - RGM 33175233
+ *   Gustavo Moreira de Queiroz          - RGM 39441229
+ *   Joelson dos Santos Mendonca Junior  - RGM 40011089
+ *   Pietro Santana Fragoso Vasconcelos  - RGM 38187515
+ *   Saulo Contreras de Assis            - RGM 37851039
+ *
+ * Funcao 1: Contagem de Ocorrencias Distintas
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "funcao_auxiliar.h"
 #include "funcao1.h"
 
-// Complexidade calculada na etapa teórica: O(n*k)
-int contar_ocorrencias(int n, int V[n], int k, int B[k])
+// Complexidade: T(n, k) = 3nk + 2k + 3  ->  O(n*k)
+long long contar_ocorrencias(int n, int V[n], int k, int B[k])
 {
-    int ocorrencias_totais = 0;
+    long long ocorrencias_totais = 0;
 
     for (int i = 0; i < k; i++)
     {
@@ -23,28 +35,23 @@ int contar_ocorrencias(int n, int V[n], int k, int B[k])
     return ocorrencias_totais;
 }
 
-void executar_funcao1()
+void executar_funcao1(void)
 {
-    int n, k, escolha;
-
     printf("\n--- Funcao 1: Contagem de Ocorrencias Distintas ---\n\n");
-    printf("Digite o tamanho do vetor principal (n): ");
-    scanf("%d", &n);
-    printf("Digite o tamanho do vetor de buscas (k): ");
-    scanf("%d", &k);
+    int n = ler_dimensao("Digite o tamanho do vetor principal (n): ");
+    int k = ler_dimensao("Digite o tamanho do vetor de buscas (k): ");
 
-    int V[n];
-    int B[k];
-
-    printf("\nComo deseja preencher os vetores?\n\n");
-    printf("1 - Aleatoriamente\n");
-    printf("2 - Manualmente\n\n");
-    printf("Escolha: ");
-    scanf("%d", &escolha);
-
-    if (escolha == 1)
+    int *V = alocar_memoria(sizeof(int[n]));
+    int *B = alocar_memoria(sizeof(int[k]));
+    if (V == NULL || B == NULL)
     {
-        srand(time(NULL));
+        free(V);
+        free(B);
+        return;
+    }
+
+    if (escolher_preenchimento("os vetores") == 1)
+    {
         preencher_vetor_aleatorio(n, V);
         preencher_vetor_aleatorio(k, B);
     }
@@ -56,11 +63,18 @@ void executar_funcao1()
         preencher_vetor_manual(k, B);
     }
 
-    printf("\nVetor Principal:\n\n");
-    imprimir_vetor(n, V);
-    printf("\nVetor de Buscas:\n\n");
-    imprimir_vetor(k, B);
+    // Exigência do projeto: Imprimir o arranjo gerado antes de exibir o resultado
+    if (confirmar_impressao((long long)n + k))
+    {
+        printf("\nVetor Principal:\n\n");
+        imprimir_vetor(n, V);
+        printf("\nVetor de Buscas:\n\n");
+        imprimir_vetor(k, B);
+    }
 
-    int total = contar_ocorrencias(n, V, k, B);
-    printf("\nTotal de ocorrencias encontradas: %d\n", total);
+    long long total = contar_ocorrencias(n, V, k, B);
+    printf("\nTotal de ocorrencias encontradas: %lld\n", total);
+
+    free(V);
+    free(B);
 }

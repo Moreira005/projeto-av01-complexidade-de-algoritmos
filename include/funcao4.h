@@ -3,6 +3,6 @@
 
 unsigned long long calcular_fatorial(int numero);
 unsigned long long processar_vetor(int n, int V[n]);
-void executar_funcao4();
+void executar_funcao4(void);
 
 #endif
